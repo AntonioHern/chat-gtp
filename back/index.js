@@ -22,12 +22,10 @@ const port = 3000
 
 app.post('/',  async (req, res) => {
     //const message = req.body
-
-    // console.log(message)
     const response = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: req.body.text,
-        max_tokens: 100,
+        max_tokens: 150,
         temperature: 0.5,
     })
    // console.log(response.data.choices[0].text)
