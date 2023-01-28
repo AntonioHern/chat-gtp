@@ -19,6 +19,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 const port = 3000
+const host = '0.0.0.0';
 
 app.post('/',  async (req, res) => {
     //const message = req.body
@@ -33,7 +34,7 @@ app.post('/',  async (req, res) => {
         data: response.data.choices[0].text
     })
 });
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+app.listen(port,host,() => {
+    console.log(`Example app listening at ${host}:${port}`)
 });
 
