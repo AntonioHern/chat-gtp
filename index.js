@@ -3,7 +3,7 @@ const {Configuration, OpenAIApi} = require("openai");
 require('dotenv').config()
 const configuration = new Configuration({
     organization: "org-eKhMRA48hf6Roe77t2BNqRLm",
-    apiKey: process.env.OPENAI_API_KEY
+    apiKey: "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"
 });
 const openai = new OpenAIApi(configuration);
 
@@ -26,14 +26,20 @@ app.post('/',  async (req, res) => {
     const response = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: req.body.text,
-        max_tokens: 150,
+        max_tokens: 200,
         temperature: 0.5,
     })
    // console.log(response.data.choices[0].text)
     res.json({
         data: response.data.choices[0].text
     })
+	//res.send('Se permite el método POST')
 });
+
+app.get('/', (req, res) => {
+    res.send('No se permite el método GET')
+
+})
 app.listen(port,host,() => {
     console.log(`Example app listening at ${host}:${port}`)
 });
