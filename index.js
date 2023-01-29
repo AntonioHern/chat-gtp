@@ -7,8 +7,6 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-
-
 // crate a simple express server api that will call the function above
 const express = require('express')
 const bodyParser = require("body-parser");
